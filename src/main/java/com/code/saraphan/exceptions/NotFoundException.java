@@ -1,4 +1,4 @@
-package com.code.saraphan.controller.exceptions;
+package com.code.saraphan.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

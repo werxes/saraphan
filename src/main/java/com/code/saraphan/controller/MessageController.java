@@ -17,7 +17,6 @@ import com.code.saraphan.domain.Views;
 @RestController
 @RequestMapping("/message")
 public class MessageController {
-
     private final MessageRepo messageRepo;
 
     @Autowired
@@ -25,19 +24,11 @@ public class MessageController {
         this.messageRepo = messageRepo;
     }
 
-
-
-
-
     @GetMapping
     @JsonView(Views.IdName.class)
     public List<Message> list() {
         return messageRepo.findAll();
     }
-
-
-
-
 
     @GetMapping("{id}")
     @JsonView(Views.FullMessage.class)
@@ -45,20 +36,11 @@ public class MessageController {
         return message;
     }
 
-
-
-
-
     @PostMapping
     public Message create(@RequestBody Message message) {
         message.setCreationDate(LocalDateTime.now());
         return messageRepo.save(message);
     }
-
-
-
-
-
 
     @PutMapping("{id}")
     public Message update(
@@ -74,5 +56,4 @@ public class MessageController {
     public void delete(@PathVariable("id") Message message) {
         messageRepo.delete(message);
     }
-
 }
